@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/signup-form/static/css/main.5f361e03.chunk.css",
+    "main.js": "/signup-form/static/js/main.dcebdc98.chunk.js",
+    "main.js.map": "/signup-form/static/js/main.dcebdc98.chunk.js.map",
+    "runtime-main.js": "/signup-form/static/js/runtime-main.6538a342.js",
+    "runtime-main.js.map": "/signup-form/static/js/runtime-main.6538a342.js.map",
+    "static/js/2.5248d6be.chunk.js": "/signup-form/static/js/2.5248d6be.chunk.js",
+    "static/js/2.5248d6be.chunk.js.map": "/signup-form/static/js/2.5248d6be.chunk.js.map",
+    "index.html": "/signup-form/index.html",
+    "precache-manifest.41378c69a45b04c44e0e423dcabe98b8.js": "/signup-form/precache-manifest.41378c69a45b04c44e0e423dcabe98b8.js",
+    "service-worker.js": "/signup-form/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/signup-form/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.5248d6be.chunk.js.LICENSE.txt": "/signup-form/static/js/2.5248d6be.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/signup-form/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6538a342.js",
+    "static/js/2.5248d6be.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.dcebdc98.chunk.js"
+  ]
+}
