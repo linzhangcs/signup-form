@@ -1,5 +1,6 @@
 export const colors = {
-    primaryRed: "hsl(0, 100%, 74%)",
+    white: "#fffdff",
+    primaryRed: "rgba(255, 30, 30, 0.6)",
     primaryGreen: "hsl(154, 59%, 51%)",
     accentBlue: "hsl(248, 32%, 49%)",
     neutralDarkBlue: "hsl(249, 10%, 26%)",
