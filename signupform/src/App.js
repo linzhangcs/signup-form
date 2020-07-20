@@ -61,11 +61,33 @@ const SignupForm = styled.div`
     box-sizing: border-box;
     margin-bottom: 20px;
     width: 100%;
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: 500;
     padding: 15px 20px;
     border: 1px solid ${colors.grayishBlue};
     border-radius: 5px;
+  }
+
+  .green-btn{
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 20px 0;
+    background-color: ${colors.primaryGreen};
+    border: 1px solid ${colors.primaryGreen};
+    border-radius: 5px;
+  }
+
+  .disclaimer{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    color: ${colors.textLightGray};
+    font-size: 0.7em;
+    font-weight: 500;
   }
 `;
 
@@ -100,6 +122,8 @@ function App() {
             <input type="text" placeholder="Last Name"></input>
             <input type="email" placeholder="Email Address"></input>
             <input type="password" placeholder="Password"></input>
+            <button class="green-btn" type="submit">claim your free trial</button>
+            <span class="disclaimer">By clicking the button, you are agreeing to our Terms and Services</span>
           </form>
         </SignupForm>
       </Container>
