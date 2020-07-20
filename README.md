@@ -21,7 +21,7 @@ Your users should be able to:
 
 - Plan out the project for responsive and reusable class
 - Use styled-component for this app
-- Build this component in react
+- Build functional components in react
 - Deploy react components on github page ✅
 - Start #100DaysOfCode 
  
