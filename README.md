@@ -20,10 +20,10 @@ Your users should be able to:
 ## Lin's goal for doing this challenge
 
 - Plan out the project for responsive and reusable class
-- Use styled-component for this app
+- Use styled-component for this app ✅
 - Build functional components in react
 - Deploy react components on github page ✅
-- Start #100DaysOfCode 
+- Start #100DaysOfCode ✅
  
 **Have fun building!** 🚀
 
