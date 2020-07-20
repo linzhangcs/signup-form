@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 const Body = styled.div`
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(${colors.primaryRed}, ${colors.primaryRed}), url(${desktopBg});
+  background:  url(${desktopBg}), linear-gradient(${colors.primaryRed}, ${colors.primaryRed});
 `;
 const Container = styled.div`
   width: 100%;
@@ -45,6 +45,28 @@ const SignupForm = styled.div`
   align-items: center;
   flex-basis: 50%;
   max-width: 540px;
+
+  form{
+    box-sizing: border-box;
+    width: 100%;
+    padding 40px;
+    margin: 25px 0;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 10px 1px  ${colors.purpleBlue};
+  }
+  
+  input{
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 1em;
+    font-weight: 500;
+    padding: 15px 20px;
+    border: 1px solid ${colors.grayishBlue};
+    border-radius: 5px;
+  }
 `;
 
 const Banner = styled.div`
@@ -75,6 +97,9 @@ function App() {
           </Banner>
           <form>
             <input type="text" placeholder="First Name"></input>
+            <input type="text" placeholder="Last Name"></input>
+            <input type="email" placeholder="Email Address"></input>
+            <input type="password" placeholder="Password"></input>
           </form>
         </SignupForm>
       </Container>
