@@ -19,9 +19,11 @@ Your users should be able to:
 
 ## Lin's goal for doing this challenge
 
-- Plan out the project for responsive and reuseable class
+- Plan out the project for responsive and reusable class
+- Use styled-component for this app
 - Build this component in react
-- Deploy react components on github page
-
+- Deploy react components on github page ✅
+- Start #100DaysOfCode 
+ 
 **Have fun building!** 🚀
 
