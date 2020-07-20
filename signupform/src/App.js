@@ -26,6 +26,16 @@ const Headlines = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-right: 60px;
+  max-width: 510px;
+  flex-basis: 50%;
+  font-weight: 500;
+  h3{
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1;
+    margin: 15px 0;
+  }
 `;
 
 const SignupForm = styled.div`
@@ -33,10 +43,20 @@ const SignupForm = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-basis: 50%;
+  max-width: 540px;
 `;
 
 const Banner = styled.div`
-  background-color: ${colors.accentBlue}
+  width: 100%;
+  text-align:center;
+  border-radius: 12px;
+  box-shadow: 0px 10px 1px  ${colors.purpleBlue};
+  background-color: ${colors.accentBlue};
+
+  .bold{
+    font-weight: 700;
+  }
 `;
 function App() {
   return (
@@ -51,7 +71,7 @@ function App() {
         </Headlines>
         <SignupForm>
           <Banner>
-            <p>Try it free 7 days then $20/mo. thereafter</p>
+            <p><span class="bold">Try it free 7 days </span>then $20/mo. thereafter</p>
           </Banner>
           <form>
             <input type="text" placeholder="First Name"></input>
