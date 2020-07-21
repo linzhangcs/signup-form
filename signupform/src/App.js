@@ -33,7 +33,7 @@ const Headlines = styled.div`
   h3{
     font-size: 3em;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.2;
     margin: 15px 0;
   }
 `;
@@ -53,7 +53,7 @@ const SignupForm = styled.div`
     margin: 25px 0;
     border-radius: 10px;
     background: #fff;
-    box-shadow: 0px 10px 1px  ${colors.purpleBlue};
+    box-shadow: 0px 8px 1px  ${colors.purpleBlue};
   }
   
   input{
@@ -66,6 +66,13 @@ const SignupForm = styled.div`
     padding: 15px 20px;
     border: 1px solid ${colors.grayishBlue};
     border-radius: 5px;
+    outline: none;
+    transition: border 0.5s ease;
+  }
+
+  input:focus{
+    border: 1px solid ${colors.neutralDarkBlue};
+    color: ${colors.textDarkGray};
   }
 
   .green-btn{
@@ -79,15 +86,22 @@ const SignupForm = styled.div`
     background-color: ${colors.primaryGreen};
     border: 1px solid ${colors.primaryGreen};
     border-radius: 5px;
+    box-shadow: inset 0 -2px 3px ${colors.purpleBlue};
   }
 
   .disclaimer{
     width: 100%;
     display: inline-block;
+    margin-top: 12px;
     text-align: center;
     color: ${colors.textLightGray};
     font-size: 0.7em;
     font-weight: 500;
+  }
+
+  .bold-red{
+    font-weight: 700;
+    color: ${colors.primaryRed};
   }
 `;
 
@@ -95,7 +109,7 @@ const Banner = styled.div`
   width: 100%;
   text-align:center;
   border-radius: 12px;
-  box-shadow: 0px 10px 1px  ${colors.purpleBlue};
+  box-shadow: 0px 8px 1px  ${colors.purpleBlue};
   background-color: ${colors.accentBlue};
 
   .bold{
@@ -123,7 +137,7 @@ function App() {
             <input type="email" placeholder="Email Address"></input>
             <input type="password" placeholder="Password"></input>
             <button class="green-btn" type="submit">claim your free trial</button>
-            <span class="disclaimer">By clicking the button, you are agreeing to our Terms and Services</span>
+            <span class="disclaimer">By clicking the button, you are agreeing to our <span class="bold-red">Terms and Services</span></span>
           </form>
         </SignupForm>
       </Container>

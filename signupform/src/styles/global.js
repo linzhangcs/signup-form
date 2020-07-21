@@ -6,7 +6,7 @@ export const colors = {
     neutralDarkBlue: "hsl(249, 10%, 26%)",
     neutralGrayishBlue: "hsl(246, 25%, 77%)",
     grayishBlue: "rgba(185, 182, 211, 0.6)",
-    purpleBlue: "rgba(62, 60, 73, 0.3)",
+    purpleBlue: "rgba(62, 60, 73, 0.25)",
     textGray: "#727274",
     textLightGray: "#bab8c3",
     textDarkGray: "#37363c"
