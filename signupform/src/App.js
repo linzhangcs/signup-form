@@ -1,121 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import desktopBg from './images/bg-intro-desktop.png';
-// import './App.css';
+import React, { useState } from 'react';
+import { Body, Container, Headlines, SignupForm, Button, Banner } from './styles/elements.js';
 
-import {colors} from './styles/global.js'
-import styled from 'styled-components';
+function Form(){
+  const [formInput, setFormInput] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  });
 
-const Body = styled.div`
-  font-family: 'Poppins', sans-serif;
-  background:  url(${desktopBg}), linear-gradient(${colors.primaryRed}, ${colors.primaryRed});
-`;
-const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
-  color: ${colors.white};
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Headlines = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-right: 60px;
-  max-width: 510px;
-  flex-basis: 50%;
-  font-weight: 500;
-  h3{
-    font-size: 3em;
-    font-weight: 700;
-    line-height: 1.2;
-    margin: 15px 0;
-  }
-`;
-
-const SignupForm = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-basis: 50%;
-  max-width: 540px;
-
-  form{
-    box-sizing: border-box;
-    width: 100%;
-    padding 40px;
-    margin: 25px 0;
-    border-radius: 10px;
-    background: #fff;
-    box-shadow: 0px 8px 1px  ${colors.purpleBlue};
-  }
-  
-  input{
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    width: 100%;
-    font-size: 0.9em;
-    font-weight: 500;
-    padding: 15px 20px;
-    border: 1px solid ${colors.grayishBlue};
-    border-radius: 5px;
-    outline: none;
-    transition: border 0.5s ease;
+  const handleChange = e => {
+    console.log(e.target.value);
+    setFormInput({...formInput, [e.target.name]: e.target.value});
   }
 
-  input:focus{
-    border: 1px solid ${colors.neutralDarkBlue};
-    color: ${colors.textDarkGray};
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log("submitted", formInput);
   }
+  return(
+    <form onSubmit={handleSubmit}>
+      <input type="text" placeholder="First Name" name="firstName" 
+      onChange={handleChange} value={formInput.firstName}></input>
+      <input type="text" placeholder="Last Name" name="lastName" 
+      onChange={handleChange} value={formInput.lastName}></input>
+      <input type="email" placeholder="Email Address" name="email" 
+      onChange={handleChange} value={formInput.email}></input>
+      <input type="password" placeholder="Password" name="password"
+      onChange={handleChange} value={formInput.password}></input>
+      <Button type="submit">claim your free trial</Button>
+      <span className="disclaimer">By clicking the button, you are agreeing to our 
+      <span className="bold-red">Terms and Services</span></span>
+    </form>
+  );
+};
 
-  .green-btn{
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1em;
-    font-weight: 700;
-    text-transform: uppercase;
-    width: 100%;
-    padding: 20px 0;
-    background-color: ${colors.primaryGreen};
-    border: 1px solid ${colors.primaryGreen};
-    border-radius: 5px;
-    box-shadow: inset 0 -2px 3px ${colors.purpleBlue};
-  }
-
-  .disclaimer{
-    width: 100%;
-    display: inline-block;
-    margin-top: 12px;
-    text-align: center;
-    color: ${colors.textLightGray};
-    font-size: 0.7em;
-    font-weight: 500;
-  }
-
-  .bold-red{
-    font-weight: 700;
-    color: ${colors.primaryRed};
-  }
-`;
-
-const Banner = styled.div`
-  width: 100%;
-  text-align:center;
-  border-radius: 12px;
-  box-shadow: 0px 8px 1px  ${colors.purpleBlue};
-  background-color: ${colors.accentBlue};
-
-  .bold{
-    font-weight: 700;
-  }
-`;
 function App() {
   return (
     <Body>
@@ -129,20 +48,14 @@ function App() {
         </Headlines>
         <SignupForm>
           <Banner>
-            <p><span class="bold">Try it free 7 days </span>then $20/mo. thereafter</p>
+            <p><span className="bold">Try it free 7 days </span>then $20/mo. thereafter</p>
           </Banner>
-          <form>
-            <input type="text" placeholder="First Name"></input>
-            <input type="text" placeholder="Last Name"></input>
-            <input type="email" placeholder="Email Address"></input>
-            <input type="password" placeholder="Password"></input>
-            <button class="green-btn" type="submit">claim your free trial</button>
-            <span class="disclaimer">By clicking the button, you are agreeing to our <span class="bold-red">Terms and Services</span></span>
-          </form>
+          <Form></Form>
         </SignupForm>
       </Container>
     </Body>
   );
 }
+
 
 export default App;
