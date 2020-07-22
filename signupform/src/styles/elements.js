@@ -1,11 +1,19 @@
 import styled from 'styled-components';
 
 import desktopBg from '../images/bg-intro-desktop.png';
-import {colors} from './global.js'
+import mobileBg from '../images/bg-intro-mobile.png';
+
+import {colors, setting} from './global.js'
 
 export const Body = styled.div`
 font-family: 'Poppins', sans-serif;
 background:  url(${desktopBg}), linear-gradient(${colors.primaryRed}, ${colors.primaryRed});
+height: 100%;
+
+@media (max-width: ${setting.mobile}){
+    background:  url(${mobileBg}), linear-gradient(${colors.primaryRed}, ${colors.primaryRed});
+    padding-bottom: 12%;
+}
 `;
 export const Container = styled.div`
 width: 100%;
@@ -16,6 +24,13 @@ display: flex;
 flex-direction: row;
 justify-content: center;
 align-items: center;
+@media (max-width: ${setting.mobile}){
+    flex-direction: column;
+    height: 100%;
+}
+@media (max-width: ${setting.tablet}){
+    flex-direction: column;
+}
 `;
 
 export const Headlines = styled.div`
@@ -33,6 +48,20 @@ h3{
   line-height: 1.2;
   margin: 15px 0;
 }
+@media (max-width: ${setting.mobile}){
+    max-width: 326px;
+    text-align: center;
+    margin-right: 0;
+    margin-top: 20%;
+    margin-bottom: 13%;
+    h3{
+        font-size: 1.7em;
+      }      
+}
+@media (max-width: ${setting.tablet}){
+    margin-right: 0;
+    flex-basis: 30%;
+}
 `;
 
 export const SignupForm = styled.div`
@@ -42,6 +71,9 @@ justify-content: center;
 align-items: center;
 flex-basis: 50%;
 max-width: 540px;
+@media (max-width: ${setting.mobile}){
+    max-width: 326px;
+}
 
 form{
   box-sizing: border-box;
@@ -51,6 +83,10 @@ form{
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 8px 1px  ${colors.purpleBlue};
+  @media (max-width: ${setting.mobile}){
+      padding: 20px;
+  }
+
 }
 
 input{
@@ -109,6 +145,12 @@ text-align:center;
 border-radius: 12px;
 box-shadow: 0px 8px 1px  ${colors.purpleBlue};
 background-color: ${colors.accentBlue};
+@media (max-width: ${setting.mobile}){
+  p{
+      margin: 20px auto;
+      max-width: 200px;
+  }  
+}
 
 .bold{
   font-weight: 700;
