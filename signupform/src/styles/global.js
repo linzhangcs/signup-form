@@ -15,5 +15,6 @@ export const colors = {
 export const setting  = {
     mobile: "375px",
     desktop: "1440px",
+    tablet: "768px",
     fontSize: "16px"
 };
