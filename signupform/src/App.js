@@ -6,16 +6,49 @@ function Form(){
     firstName: '',
     lastName: '',
     email: '',
-    password: ''
+    password: '',
+    errors:{
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: ''
+      }
   });
+  
+  const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
 
   const handleChange = e => {
     console.log(e.target.value);
-    setFormInput({...formInput, [e.target.name]: e.target.value});
+    const {name, value} = e.target;
+
+    let errors = formInput.errors;
+    console.log("errors", errors);
+    switch(name){
+      case "firstName":
+        errors.firstName = value.length === 0 ? 'First name cannot be empty' : '';
+        console.log(errors);
+        break;
+      case "lastName":
+        errors.lastName  = value.length === 0 ? 'Last name cannot be empty' : '';
+        break;
+      case "password":
+        errors.password = value.length === 0 ? 'Last name cannot be empty' : '';
+        // error = value.length === 0 ? 'password cannot be empty' : '';
+        break;
+      case "email":
+        errors.email = validEmailRegex.test(value) ? '': 'Looks like this is not an email';
+        break;
+      default:
+        break;
+    }
+    setFormInput({['errors']: errors});
+    setFormInput({...formInput, [name]: value});
+
   }
 
   const handleSubmit = e => {
     e.preventDefault();
+    
     console.log("submitted", formInput);
   }
   return(
@@ -24,7 +57,7 @@ function Form(){
       onChange={handleChange} value={formInput.firstName}></input>
       <input type="text" placeholder="Last Name" name="lastName" 
       onChange={handleChange} value={formInput.lastName}></input>
-      <input type="email" placeholder="Email Address" name="email" 
+      <input placeholder="Email Address" name="email" 
       onChange={handleChange} value={formInput.email}></input>
       <input type="password" placeholder="Password" name="password"
       onChange={handleChange} value={formInput.password}></input>
@@ -50,7 +83,7 @@ function App() {
           <Banner>
             <p><span className="bold">Try it free 7 days </span>then $20/mo. thereafter</p>
           </Banner>
-          <Form></Form>
+          <Form />
         </SignupForm>
       </Container>
     </Body>
