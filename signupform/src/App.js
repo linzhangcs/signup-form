@@ -38,9 +38,7 @@ function Form(){
       default:
         break;
     }
-    setFormInput({errors: errors});
-    setFormInput({...formInput, [name]: value});
-    console.log('input', formInput)
+    setFormInput({...formInput, [name]: value, errors: errors});
   }
 
   const handleSubmit = e => {
@@ -51,25 +49,25 @@ function Form(){
   return(
     <form onSubmit={handleSubmit}>
       <div className="inputs">
-        <input type="text" placeholder="First Name" name="firstName" 
+        <input type="text" className={formInput.errors.firstName.length > 0 && formInput.validated ? "error": ''} placeholder="First Name" name="firstName" 
         onChange={handleChange} value={formInput.firstName}></input>
         {formInput.errors.firstName.length > 0 && formInput.validated &&
         <span className="error-text">{formInput.errors.firstName}</span>}
       </div>
       <div className="inputs">
-        <input type="text" placeholder="Last Name" name="lastName" 
+        <input type="text" className={formInput.errors.lastName.length > 0 && formInput.validated ? "error": ''} placeholder="Last Name" name="lastName" 
         onChange={handleChange} value={formInput.lastName}></input>
         {formInput.errors.lastName.length > 0 && formInput.validated &&
         <span className="error-text">{formInput.errors.lastName}</span>}
       </div>
       <div className="inputs">
-        <input placeholder="Email Address" name="email" 
+        <input placeholder="Email Address" className={formInput.errors.email.length > 0 && formInput.validated ? "error": ''}  name="email" 
         onChange={handleChange} value={formInput.email}></input>
         {formInput.errors.email.length > 0 && formInput.validated &&
           <span className="error-text">{formInput.errors.email}</span>}
       </div>
       <div className="inputs">
-        <input type="password" placeholder="Password" name="password"
+        <input type="password" placeholder="Password" className={formInput.errors.password.length > 0 && formInput.validated ? "error": ''}  name="password"
         onChange={handleChange} value={formInput.password}></input>
         {formInput.errors.password.length > 0 && formInput.validated &&
           <span className="error-text">{formInput.errors.password}</span>}

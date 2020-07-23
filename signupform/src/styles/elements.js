@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import desktopBg from '../images/bg-intro-desktop.png';
 import mobileBg from '../images/bg-intro-mobile.png';
+import errorIcon from '../images/icon-error.svg';
 
 import {colors, setting} from './global.js'
 
@@ -110,8 +111,12 @@ input:focus{
   border: 1px solid ${colors.neutralDarkBlue};
 }
 
-.error{
-    border: 1px solid ${colors.primaryRed};
+input.error{
+    color: ${colors.primaryRed};
+    border: 2px solid ${colors.primaryRed};
+    background-image: url(${errorIcon});
+    background-repeat: no-repeat;
+    background-position: 97%;
 }
 
 .error-text{
