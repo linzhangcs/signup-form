@@ -88,11 +88,13 @@ form{
   }
 
 }
-
+.inputs{
+    clear: both;
+    margin-bottom: 20px;
+}
 input{
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
-  margin-bottom: 20px;
   width: 100%;
   font-size: 0.9em;
   font-weight: 500;
@@ -106,6 +108,20 @@ input{
 input:focus{
   color: ${colors.textDarkGray};
   border: 1px solid ${colors.neutralDarkBlue};
+}
+
+.error{
+    border: 1px solid ${colors.primaryRed};
+}
+
+.error-text{
+    display:block;
+    font-size: 0.7em;
+    font-style: italic;
+    font-weight: 500;
+    color: ${colors.primaryRed};
+    float: right;
+    margin: 10px 0 20px;
 }
 
 .disclaimer{
