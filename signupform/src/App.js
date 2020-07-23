@@ -7,33 +7,30 @@ function Form(){
     lastName: '',
     email: '',
     password: '',
+    validated: false,
     errors:{
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: ''
+        firstName: 'First name cannot be empty',
+        lastName: 'Last name cannot be empty',
+        email: 'Looks like this is not an email',
+        password: 'Password cannot be empty'
       }
   });
   
   const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
 
   const handleChange = e => {
-    console.log(e.target.value);
     const {name, value} = e.target;
-
     let errors = formInput.errors;
-    console.log("errors", errors);
+
     switch(name){
       case "firstName":
         errors.firstName = value.length === 0 ? 'First name cannot be empty' : '';
-        console.log(errors);
         break;
       case "lastName":
         errors.lastName  = value.length === 0 ? 'Last name cannot be empty' : '';
         break;
       case "password":
-        errors.password = value.length === 0 ? 'Last name cannot be empty' : '';
-        // error = value.length === 0 ? 'password cannot be empty' : '';
+        errors.password = value.length === 0 ? 'Password cannot be empty' : '';
         break;
       case "email":
         errors.email = validEmailRegex.test(value) ? '': 'Looks like this is not an email';
@@ -41,26 +38,43 @@ function Form(){
       default:
         break;
     }
-    setFormInput({['errors']: errors});
+    setFormInput({errors: errors});
     setFormInput({...formInput, [name]: value});
-
+    console.log('input', formInput)
   }
 
   const handleSubmit = e => {
     e.preventDefault();
-    
+    setFormInput({...formInput, validated: true});
     console.log("submitted", formInput);
   }
   return(
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="First Name" name="firstName" 
-      onChange={handleChange} value={formInput.firstName}></input>
-      <input type="text" placeholder="Last Name" name="lastName" 
-      onChange={handleChange} value={formInput.lastName}></input>
-      <input placeholder="Email Address" name="email" 
-      onChange={handleChange} value={formInput.email}></input>
-      <input type="password" placeholder="Password" name="password"
-      onChange={handleChange} value={formInput.password}></input>
+      <div className="inputs">
+        <input type="text" placeholder="First Name" name="firstName" 
+        onChange={handleChange} value={formInput.firstName}></input>
+        {formInput.errors.firstName.length > 0 && formInput.validated &&
+        <span className="error-text">{formInput.errors.firstName}</span>}
+      </div>
+      <div className="inputs">
+        <input type="text" placeholder="Last Name" name="lastName" 
+        onChange={handleChange} value={formInput.lastName}></input>
+        {formInput.errors.lastName.length > 0 && formInput.validated &&
+        <span className="error-text">{formInput.errors.lastName}</span>}
+      </div>
+      <div className="inputs">
+        <input placeholder="Email Address" name="email" 
+        onChange={handleChange} value={formInput.email}></input>
+        {formInput.errors.email.length > 0 && formInput.validated &&
+          <span className="error-text">{formInput.errors.email}</span>}
+      </div>
+      <div className="inputs">
+        <input type="password" placeholder="Password" name="password"
+        onChange={handleChange} value={formInput.password}></input>
+        {formInput.errors.password.length > 0 && formInput.validated &&
+          <span className="error-text">{formInput.errors.password}</span>}
+      </div>
+
       <Button type="submit">claim your free trial</Button>
       <span className="disclaimer">By clicking the button, you are agreeing to our 
       <span className="bold-red">Terms and Services</span></span>
